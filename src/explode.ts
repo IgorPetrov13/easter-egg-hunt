@@ -20,6 +20,9 @@ export function addExplodeEffect(btn: HTMLElement): void {
         duration: 700,
         easing: 'cubic.out',
       },
+      onComplete: function () {
+        this.el.parentNode?.removeChild(this.el);
+      },
     }).play();
   });
 }
@@ -49,6 +52,9 @@ export function addEggCrackEffect(btn: HTMLElement): void {
         duration: 1500,
         easing: 'cubic.out',
       },
+      onComplete: function () {
+        this.el.parentNode?.removeChild(this.el);
+      },
     }).play();
 
     new mojs.Shape({
@@ -61,6 +67,11 @@ export function addEggCrackEffect(btn: HTMLElement): void {
       radius: { 0: maxRadius * 0.4 },
       duration: 1000,
       easing: 'cubic.out',
+      onComplete: function () {
+        setTimeout(() => {
+          this.el.parentNode?.removeChild(this.el);
+        }, 5000);
+      },
     }).play();
 
     new mojs.Shape({
@@ -73,6 +84,11 @@ export function addEggCrackEffect(btn: HTMLElement): void {
       radius: { 0: maxRadius },
       duration: 1200,
       easing: 'cubic.out',
+      onComplete: function () {
+        setTimeout(() => {
+          this.el.parentNode?.removeChild(this.el);
+        }, 5000);
+      },
     }).play();
   });
 }
@@ -80,6 +96,7 @@ export function addEggCrackEffect(btn: HTMLElement): void {
 export function createFullScreenFireworks(): void {
   const colors = ['#FF5733', '#FFC300', '#DAF7A6', '#C70039', '#900C3F', '#581845', '#28B463'];
 
+  // Отключаем скролл-бары
   document.body.style.overflow = 'hidden';
 
   function createBurst(x: number, y: number): void {
@@ -151,11 +168,13 @@ export function createFullScreenFireworks(): void {
 
   const intervalId = setInterval(() => {
     createFirework();
-    createFirework();
   }, 300);
 
   setTimeout(() => {
     clearInterval(intervalId);
-    document.body.style.overflow = '';
+
+    setTimeout(() => {
+      document.body.style.overflow = '';
+    }, 1000); 
   }, 7000);
 }

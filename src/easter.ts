@@ -3,12 +3,16 @@ import { addEggCrackEffect, createFullScreenFireworks } from './explode';
 const eggImages = [
     '/images/easter_egg_1.svg',
     '/images/easter_egg_2.svg',
+    '/images/easter_egg_3.svg',
+    '/images/easter_egg_4.svg',
+    '/images/easter_egg_5.svg',
+    '/images/easter_egg_6.svg',
 ];
 
 let brokenEggsCount = 0; 
-const targetEggs = 1; 
 
-export function launchEasterEggs(options: { eggImages?: string[] } = {}, personalMsgage: string = ''): void {
+export function launchEasterEggs(options: { eggImages?: string[], personalMsgage: string, targetEggs?: number } = {personalMsgage: ''} ): void {
+  const targetEggs = options.targetEggs || 15; 
   const counter = document.createElement('div');
   counter.className = 'egg-counter';
   counter.innerText = `Broken Eggs: ${brokenEggsCount}/${targetEggs}`;
@@ -17,9 +21,10 @@ export function launchEasterEggs(options: { eggImages?: string[] } = {}, persona
   function updateCounter(): void {
     brokenEggsCount++;
     counter.innerText = `Broken Eggs: ${brokenEggsCount}/${targetEggs}`;
-    if (brokenEggsCount >= targetEggs) {
+    if (brokenEggsCount === targetEggs) {
       createFullScreenFireworks();
       showFinalMessage();
+      clearInterval(intervalId);
     }
   }
 
@@ -60,7 +65,7 @@ export function launchEasterEggs(options: { eggImages?: string[] } = {}, persona
   function showFinalMessage(): void {
     const message = document.createElement('div');
     message.className = 'final-message';
-    message.innerText = personalMsgage || 'Happy Easter! Enjoy your weekends :)';
+    message.innerText = options.personalMsgage || 'Happy Easter! Enjoy your weekends :)';
     document.body.appendChild(message);
 
     // Удаляем сообщение через 7 секунд
