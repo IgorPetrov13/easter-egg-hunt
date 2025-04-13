@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Sandbox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100vh; /* Use viewport height */
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(to bottom, #F5F5F5, #E0E0E0); /* Grey 100 to Grey 300 */
+      color: #424242; /* Grey 800 */
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: #F5F5F5; /* Grey 100 */
+      color: #424242; /* Grey 800 */
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    main p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    main button {
+      background-color: #757575; /* Grey 600 */
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    main button:hover {
+      background-color: #616161; /* Grey 700 */
+    }
+    footer {
+      background: #F5F5F5; /* Grey 100 */
+      color: #424242; /* Grey 800 */
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Sandbox Logo</div>
+  </header>
+  <main>
+    <p>This is a test page for experimenting with various npm libraries.</p>
+    <button onclick="alert('Hello from the Sandbox!')">Click Me</button>
+  </main>
+  <footer>
+    <p>&copy; 2025 Sandbox Testing</p>
+  </footer>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

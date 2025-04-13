@@ -1,0 +1,56 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Маска в форме яйца -->
+  <defs>
+    <clipPath id="eggClip">
+      <ellipse cx="100" cy="150" rx="90" ry="130" />
+    </clipPath>
+  </defs>
+
+  <!-- Контур яйца -->
+  <ellipse cx="100" cy="150" rx="90" ry="130" fill="orange" stroke="black" stroke-width="6" />
+
+  <!-- Всё содержимое внутри формы -->
+  <g clip-path="url(#eggClip)">
+    <!-- Верхние волны -->
+    <path d="M25 70 Q50 60 75 70 T125 70 T175 70" fill="none" stroke="black" stroke-width="6"/>
+    <path d="M25 90 Q50 80 75 90 T125 90 T175 90" fill="none" stroke="black" stroke-width="6"/>
+
+    <!-- Глаза -->
+    <!-- Левый глаз -->
+    <ellipse cx="70" cy="120" rx="16" ry="20" fill="black" />
+    <circle cx="70" cy="112" r="5" fill="white">
+      <animate attributeName="cx" values="65;75;65" dur="1s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Правый глаз -->
+    <ellipse cx="130" cy="120" rx="16" ry="20" fill="black" />
+    <circle cx="130" cy="112" r="5" fill="white">
+      <animate attributeName="cx" values="125;135;125" dur="1s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Улыбка -->
+<path d="M70 165 Q100 185 130 165" stroke="black" stroke-width="5" fill="none" stroke-linecap="round">
+<animate 
+    attributeName="d" 
+    dur=".7s" 
+    repeatCount="indefinite"
+    values="
+      M60 160 Q100 175 140 160;  
+      M50 160 Q100 185 150 160;  
+      M60 160 Q100 170 140 160  
+    " 
+/>
+</path>
+    <!-- Чёрная полоса -->
+    <rect x="10" y="180" width="180" height="30" fill="black"/>
+
+    <!-- Белая зона с ромбами -->
+    <rect x="10" y="210" width="180" height="30" fill="#fffaf5"/>
+    <g fill="black">
+      <polygon points="50,225 55,230 50,235 45,230" />
+      <polygon points="80,225 85,230 80,235 75,230" />      
+      <polygon points="110,225 115,230 110,235 105,230" />
+      <polygon points="140,225 145,230 140,235 135,230" />
+    </g>
+  </g>
+</svg>
