@@ -5,9 +5,9 @@ export function launchEasterEggs(options: {
   personalMsgage: string, 
   targetEggs?: number, 
   basePath?: string 
-} = { personalMsgage: '' }): void {
+} = { personalMsgage: '', basePath: '' }): void {
 
-  const basePath = options.basePath || '/';
+  const basePath = options.basePath;
   const eggImages = options.eggImages || [
     `${basePath}images/easter_egg_1.svg`,
     `${basePath}images/easter_egg_2.svg`,
