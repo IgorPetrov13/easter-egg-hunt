@@ -1,18 +1,24 @@
 import { addEggCrackEffect, createFullScreenFireworks } from './explode';
 
-const eggImages = [
-    '/images/easter_egg_1.svg',
-    '/images/easter_egg_2.svg',
-    '/images/easter_egg_3.svg',
-    '/images/easter_egg_4.svg',
-    '/images/easter_egg_5.svg',
-    '/images/easter_egg_6.svg',
-];
+export function launchEasterEggs(options: { 
+  eggImages?: string[], 
+  personalMsgage: string, 
+  targetEggs?: number, 
+  basePath?: string 
+} = { personalMsgage: '' }): void {
 
-let brokenEggsCount = 0; 
+  const basePath = options.basePath || '/';
+  const eggImages = options.eggImages || [
+    `${basePath}images/easter_egg_1.svg`,
+    `${basePath}images/easter_egg_2.svg`,
+    `${basePath}images/easter_egg_3.svg`,
+    `${basePath}images/easter_egg_4.svg`,
+    `${basePath}images/easter_egg_5.svg`,
+    `${basePath}images/easter_egg_6.svg`,
+  ];
 
-export function launchEasterEggs(options: { eggImages?: string[], personalMsgage: string, targetEggs?: number } = {personalMsgage: ''} ): void {
-  const targetEggs = options.targetEggs || 15; 
+  let brokenEggsCount = 0;
+  const targetEggs = options.targetEggs || 15;
   const counter = document.createElement('div');
   counter.className = 'egg-counter';
   counter.innerText = `Broken Eggs: ${brokenEggsCount}/${targetEggs}`;
@@ -68,7 +74,6 @@ export function launchEasterEggs(options: { eggImages?: string[], personalMsgage
     message.innerText = options.personalMsgage || 'Happy Easter! Enjoy your weekends :)';
     document.body.appendChild(message);
 
-    // Удаляем сообщение через 7 секунд
     setTimeout(() => {
       message.remove();
     }, 5000);

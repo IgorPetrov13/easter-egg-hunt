@@ -1,6 +1,6 @@
 {
   "name": "easter-egg-hunt",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A vanilla TypeScript library",
   "main": "dist/easter-egg-hunt.umd.js",
   "module": "dist/easter-egg-hunt.es.js",
@@ -12,14 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/easter-egg-hunt.js",
-      "require": "./dist/easter-egg-hunt.cjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
+  "type": "module",  
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/node": "^22.14.1",
     "typescript": "^5.8.3",

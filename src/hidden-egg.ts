@@ -1,8 +1,8 @@
 import { addExplodeEffect } from "./explode";
 
-const egg2 = '/images/hidden_egg.svg';
 
-export function attachHiddenEgg(triggerCallback: () => void = () => { }): void {
+export function attachHiddenEgg(triggerCallback: () => void = () => { }, basePath: string = '/'): void {
+  const egg2 = `${basePath}images/hidden_egg.svg`;
 
   const triggerCB = () => {
     triggerCallback();    

@@ -4,10 +4,9 @@ import path from 'path';
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'easter-egg-hunt',
-      fileName: 'easter-egg-hunt',
-      formats: ['es', 'cjs']
-    }
-  }
+      entry: path.resolve(__dirname, 'src/index.ts'), 
+      name: 'EasterEggHunt',
+      fileName: (format) => `easter-egg-hunt.${format}.js`, 
+    },
+  },
 });
